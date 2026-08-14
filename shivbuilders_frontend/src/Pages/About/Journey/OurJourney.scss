@@ -1,0 +1,247 @@
+@font-face {
+    font-family: "Content";
+    src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Heading";
+    src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+    font-style: normal;
+}
+
+$primary-bg: #001a4d;
+$white: #ffffff;
+$text-dark: #001a4d;
+
+.journey-section {
+  background: $primary-bg;
+  padding: 80px 0 120px;
+}
+
+.journey-wrapper {
+  max-width: 1270px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+/* LAYOUT ROWS */
+.journey-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.row-1 { margin-top: 40px; }
+.row-2 { margin-top: -10px; }
+.row-3 { margin-top: -10px; }
+
+/* HEADER */
+.journey-header {
+  color: $white;
+  max-width: 350px; /* reduced for 3-line subtitle */
+}
+
+.journey-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.journey-line {
+  width: 5px;
+  height: 55px;
+  background: $white;
+}
+
+.journey-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  font-family: "Heading", sans-serif;
+
+}
+
+.journey-subtitle {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify ;
+  font-family: "Content", sans-serif;
+}
+
+/* CARD CONTAINER (ANIMATION) */
+.journey-card-container {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.journey-card-container.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CARD STYLES */
+.journey-card {
+  display: flex;
+  align-items: center; // vertical center fix
+  gap: 26px;
+  padding: 25px 35px;
+  max-width: 540px;
+}
+
+/* WHITE PILL */
+.pill {
+  background: $white;
+  border-radius: 100px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  color: $text-dark;
+}
+
+/* NO BG - PLAIN */
+.plain {
+  background: none;
+  color: $white;
+}
+
+/* NUMBER */
+.journey-number {
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* TEXT */
+.journey-year {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 10PX;
+}
+
+.journey-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 6px 0 8px;
+  font-family: "Content", sans-serif;
+}
+
+.journey-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Content", sans-serif;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 800px) {
+  .journey-section {
+    padding: 30px 0 80px;
+  }
+
+  .journey-wrapper {
+    padding: 0 20px; /* Reduced padding to prevent cutting */
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .journey-row {
+    flex-direction: column;
+    text-align: left; /* heading left aligned */
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+    align-items: flex-start; /* Left align only for heading row */
+  }
+
+  /* HEADING SECTION - LEFT ALIGNED */
+  .journey-header {
+    width: 100%;
+  }
+
+  .journey-title {
+    font-size: 28px;
+    text-align: left; /* left align heading only */
+  }
+
+  .journey-subtitle {
+    font-size: 16px;
+    text-align: justify ; /* subtitle also left aligned */
+  }
+
+  /* CARD CONTAINER - CENTERED & FULL WIDTH */
+  .journey-card-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center card horizontally */
+  }
+
+  /* CARD STYLES - CENTERED CONTENT */
+  .journey-card {
+    flex-direction: column;
+    width: 100%;            /* FULL WIDTH */
+    max-width: 100%;        /* FIX CUTTING ISSUE */
+    margin: 0;              /* Remove auto margin */
+    border-radius: 30px !important;
+    padding: 25px;
+    text-align: center;    /* Center all card text */
+    align-items: center;   /* Center all items */
+    box-sizing: border-box; /* Include padding in width */
+    gap: 10px;
+  }
+
+  /* CARD CONTENT - ALL CENTERED */
+  .journey-number {
+    font-size: 60px;
+    text-align: center; /* Center number */
+    width: 100%;
+  }
+
+  .journey-text {
+    width: 100%;
+    text-align: center; /* Center all text inside card */
+  }
+
+  .journey-year,
+  .journey-card-title,
+  .journey-desc {
+    text-align: center; /* Center all text elements */
+  }
+
+  .journey-desc {
+    text-align: center; /* Center description */
+    max-width: 100%;
+  }
+
+  /* MOBILE ALTERNATING BACKGROUNDS */
+  .mobile-style-1 { 
+    background: $white !important; 
+    color: $text-dark; 
+    border: none; 
+  }
+  .mobile-style-2 { 
+    background: none !important; 
+    border: 1px solid $white; 
+    color: $white; 
+  }
+  .mobile-style-3 { 
+    background: $white !important; 
+    color: $text-dark; 
+    border: none; 
+  }
+  .mobile-style-4 { 
+    background: none !important; 
+    border: 1px solid $white; 
+    color: $white; 
+  }
+  .mobile-style-5 { 
+    background: $white !important; 
+    color: $text-dark; 
+    border: none; 
+  }
+
+  /* Adjust row margins for mobile */
+  .row-1, .row-2, .row-3 {
+    margin-top: 0;
+  }
+}

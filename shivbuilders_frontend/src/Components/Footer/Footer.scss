@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+$navy: #071a4b;
+$white: #ffffff;
+
+
+@font-face {
+  font-family: "Content";
+  src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Heading";
+  src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+  font-style: normal;
+}
+
+.footer-section {
+  width: 100%;
+  background: $navy;
+  padding: 30px 0 10px;
+  color: $white;
+
+}
+
+.footer-container {
+  width: 80%;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr 0.6fr 1fr; // Adjusted column widths
+  gap: 25px; // Reduced gap
+  align-items: start; // Changed back to start for better alignment
+}
+
+
+.logo-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+.footer-logo {
+  width: 170px;
+  height: auto;
+
+  @media (min-width: 1400px) {
+
+    width: 190px;
+  }
+}
+
+/* TITLES */
+.footer-title {
+  font-size: 18px; // Slightly smaller title
+  font-weight: 400;
+  margin-bottom: 15px; // Reduced margin
+   font-family: "Content", sans-serif;
+
+}
+
+/* TEXT */
+.footer-info p {
+  margin-bottom: 10px; // Reduced margin
+  font-size: 14px; // Slightly smaller text
+  opacity: 0.9;
+  line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* LINKS */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 8px; // Reduced margin
+    font-size: 14px; // Slightly smaller text
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+/* SOCIAL */
+.social-col {
+  text-align: left;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px; // Reduced gap
+  font-size: 18px; // Slightly smaller icons
+  margin-bottom: 15px; // Reduced margin
+
+  svg {
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+/* BUTTON */
+.footer-tag-btn {
+  margin-top: 8px; // Reduced margin
+  padding: 10px 25px; // Slightly smaller button
+  border: 1px solid $white;
+  border-radius: 40px;
+  background: transparent;
+  color: $white;
+  cursor: pointer;
+  font-size: 13px; // Slightly smaller text
+  transition: 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* COPYRIGHT - Desktop: Single line */
+.footer-copy {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+  font-family: "Heading", sans-serif;
+
+  .copyright-line {
+    display: inline;
+  }
+
+  .developer-line {
+    display: inline;
+    margin-left: 5px;
+  }
+
+  span {
+    font-weight: 400;
+    margin-left: 4px;
+  }
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 40px 0 30px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+    width: 90%;
+
+    .footer-col {
+      margin-bottom: 15px;
+    }
+
+    .social-col {
+      text-align: center;
+    }
+
+    .logo-col {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+
+  .footer-tag-btn {
+    margin: 0 auto;
+  }
+
+  .footer-copy {
+    margin-top: 30px;
+    padding: 0 20px;
+    
+    /* Mobile: 2 lines */
+    .copyright-line {
+      display: block;
+    }
+
+    .developer-line {
+      display: block;
+      margin-left: 0;
+      margin-top: 5px;
+    }
+  }
+}
+
+// Extra small mobile devices
+@media (max-width: 480px) {
+  .footer-container {
+    gap: 15px;
+  }
+
+  .footer-col {
+    margin-bottom: 10px !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  /* Hide unwanted sections */
+  .footer-col:not(.logo-col):not(:nth-child(2)):not(.social-col) {
+    display: none;
+    
+  }
+
+  /* Force column order */
+  .logo-col {
+    order: 1;
+  }
+
+  /* Reservations Office (2nd column in JSX) */
+  .footer-col:nth-child(2) {
+    order: 2;
+  }
+
+  /* Get Social */
+  .social-col {
+    order: 3;
+  }
+
+  /* Hide "Tag us in your photos!" button */
+  .footer-tag-btn {
+    display: none;
+  }
+}
+
+
+
+/* FOOTER LINKS */
+.footer-links li a {
+  color: $white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ACTIVE FOOTER LINK */
+.footer-links li a.footer-active {
+  color: #f2d675;   // ✅ GOLD ACTIVE COLOR
+  font-weight: 600;
+}
+
+
+
+.footer-info a {
+  color: $white;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  opacity: 0.8;
+}
+
+.footer-icons a {
+  color: $white;
+}
+
+
+.techorses-link {
+  color: $white;
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+  margin-left: 5px;
+}
+
+.techorses-link:hover {
+  opacity: 0.8;
+}
+
+
+
+@media (min-width: 769px) {
+  .footer-copy .developer-line::before {
+    content: " - ";
+    margin-right: 4px;
+  }
+}
+

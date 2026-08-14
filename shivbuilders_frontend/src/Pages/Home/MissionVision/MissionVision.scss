@@ -1,0 +1,258 @@
+@font-face {
+  font-family: "Content";
+  src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Heading";
+  src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+  font-style: normal;
+}
+
+
+.mv-section {
+    width: 100%;
+    background: #fdf9f2;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mv-wrapper {
+    width: 100%;
+    max-width: 1270px;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.mv-block {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    &.mission {
+        flex-direction: row;
+    }
+
+    &.vision {
+        flex-direction: row;
+    }
+}
+
+/* FIXED TITLE WRAP STYLES */
+.title-wrap {
+  display: flex;
+  align-items: center; /* This ensures line and text are vertically centered */
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* LINE STYLES */
+.line {
+  width: 5px;
+  height: 55px;
+  background: #0c1a52;
+  flex-shrink: 0; /* Prevent line from shrinking */
+}
+
+.mv-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #001a4d;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Heading", sans-serif;
+    line-height: 1; /* Ensure title doesn't have extra line height */
+}
+
+.mv-content {
+    flex: 1;
+    color: #001a4d;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: "Content", sans-serif;
+}
+
+.mv-image {
+    flex: 1;
+    display: flex;
+
+    img {
+        width: 100%;
+        max-width: 450px;
+        object-fit: contain;
+        opacity: 0; /* Start hidden for animation */
+        transform: translateX(0); /* Initial position for animation */
+        transition: all 0.8s ease-in-out;
+    }
+}
+
+/* DESKTOP ALIGNMENT FIX */
+.mv-block.mission .mv-image {
+    justify-content: flex-start;
+}
+
+.mv-block.vision .mv-image {
+    justify-content: flex-end;
+}
+
+/* ANIMATION CLASSES */
+.mv-block.mission .mv-image img {
+    transform: translateX(-100px); /* Start from left */
+}
+
+.mv-block.vision .mv-image img {
+    transform: translateX(100px); /* Start from right */
+}
+
+.mv-block.mission .mv-image img.animated {
+    opacity: 1;
+    transform: translateX(0); /* Move to original position */
+}
+
+.mv-block.vision .mv-image img.animated {
+    opacity: 1;
+    transform: translateX(0); /* Move to original position */
+}
+
+/* CONTENT ANIMATION */
+.mv-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-in-out 0.3s; /* Delay for content */
+}
+
+.mv-content.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----------------------------------------------
+   RESPONSIVE TABLET
+-----------------------------------------------*/
+@media (max-width: 992px) {
+    .mv-section {
+        padding: 20px 0;
+    }
+    
+    .mv-wrapper {
+        padding: 0 20px;
+        gap: 90px;
+    }
+
+    .mv-block {
+        gap: 10px;
+    }
+
+    .mv-title {
+        font-size: 38px;
+        text-align: left;
+    }
+
+    /* TABLET LINE STYLES */
+    .line {
+        height: 50px;
+        width: 4px;
+    }
+
+    /* Reduce animation distance on tablet */
+    .mv-block.mission .mv-image img {
+        transform: translateX(-50px);
+    }
+
+    .mv-block.vision .mv-image img {
+        transform: translateX(50px);
+    }
+}
+
+/* ----------------------------------------------
+   RESPONSIVE MOBILE
+-----------------------------------------------*/
+@media (max-width: 768px) {
+    .mv-wrapper {
+        gap: 60px;
+    }
+
+    .mv-block {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .mv-title {
+        font-size: 32px;
+    }
+
+    .mv-content {
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .mv-image {
+        justify-content: center !important;
+    }
+
+    .mv-block.mission .mv-content {
+        order: 1;
+    }
+
+    .mv-block.mission .mv-image {
+        order: 2;
+    }
+
+    .mv-image img {
+        max-width: 320px;
+    }
+
+    /* MOBILE LINE STYLES */
+    .title-wrap {
+        gap: 10px;
+        justify-content: left; /* Center on mobile */
+    }
+
+    .line {
+        height: 40px;
+        width: 4px;
+    }
+
+    /* Reset animations for mobile */
+    .mv-block.mission .mv-image img,
+    .mv-block.vision .mv-image img {
+        transform: translateY(50px); /* Come from bottom on mobile */
+    }
+
+    .mv-block.mission .mv-image img.animated,
+    .mv-block.vision .mv-image img.animated {
+        transform: translateY(0);
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .mv-wrapper {
+        padding: 0 15px;
+        gap: 50px;
+    }
+
+    .mv-title {
+        font-size: 28px;
+    }
+}
+
+
+/* MOBILE ONLY – Vision title right aligned with line after text */
+@media (max-width: 768px) {
+
+  .mv-block.vision .title-wrap {
+    justify-content: flex-start;     /* push content to right */
+    flex-direction: row-reverse;  /* line comes AFTER heading */
+    text-align: right !important;
+  }
+
+  .mv-block.vision .mv-title {
+    text-align: right;
+  }
+}

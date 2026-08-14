@@ -1,0 +1,365 @@
+$blue: #001a4d;
+$bg: #fdf9f2;
+
+@font-face {
+  font-family: "Content";
+  src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Heading";
+  src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+  font-style: normal;
+}
+
+.showcase-section {
+  width: 100%;
+  background: $bg;
+  padding: 20px 0 60px;
+}
+
+.showcase-wrapper {
+  // width: 80%; 
+  max-width: 1270px;
+  margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+
+.showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 55px;
+  margin-top: -4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-in-out;
+}
+
+.showcase-header.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SHOWCASE PAGE SPECIFIC TITLE WRAP STYLES */
+.showcase-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  top: 6rem;
+}
+
+/* SHOWCASE PAGE SPECIFIC LINE STYLES */
+.showcase-line {
+  width: 5px;
+  height: 55px;
+  background: #0c1a52;
+  flex-shrink: 0;
+}
+
+.showcase-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: $blue;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-family: "Heading", sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 28px !important;
+  }
+}
+
+.showcase-subtitle {
+  font-size: 20px;
+  color: $blue;
+  line-height: 1.5;
+  text-align: right;
+  position: relative;
+  top: 4rem;
+   font-family: "Content", sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 15px !important;
+    top: 2rem;
+    margin-left: 5px;
+  }
+}
+
+/* ---------- GRID LAYOUT ---------- */
+
+.showcase-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ROW 1: Left 40% - Right 60% */
+.showcase-row-1 {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.showcase-card-1 {
+  width: calc(40% - 7.5px);
+}
+
+.showcase-card-2 {
+  width: calc(60% - 7.5px);
+}
+
+/* ROW 2: Left 60% - Right 40% */
+.showcase-row-2 {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.showcase-card-3 {
+  width: calc(60% - 7.5px);
+}
+
+.showcase-card-4 {
+  width: calc(40% - 7.5px);
+}
+
+/* ROW 3: Full width */
+.showcase-card-5 {
+  width: 100%;
+}
+
+/* ---------- IMAGE SIZES ---------- */
+
+/* Row 1 - Same height */
+.showcase-card-1 img {
+  display: flex;
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.showcase-card-2 img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Row 2 - Same height */
+.showcase-card-3 img,
+.showcase-card-4 img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Row 3 - Full width */
+.showcase-card-5 img {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ---------- CARD + CAPTION + ANIMATIONS ---------- */
+
+.showcase-card {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-in-out;
+}
+
+.showcase-card.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays for cards */
+.showcase-card-1.animated { transition-delay: 0.1s; }
+.showcase-card-2.animated { transition-delay: 0.2s; }
+.showcase-card-3.animated { transition-delay: 0.3s; }
+.showcase-card-4.animated { transition-delay: 0.4s; }
+.showcase-card-5.animated { transition-delay: 0.5s; }
+
+.showcase-card img {
+  width: 100%;
+  display: block;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1);
+}
+
+/* Hover effects for images */
+.showcase-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Image loading animation */
+.showcase-card.animated img {
+  animation: showcaseImageReveal 1s ease-in-out;
+}
+
+@keyframes showcaseImageReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* caption box - CENTERED */
+.showcase-caption {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 22px;
+  border-radius: 26px;
+  border: 1px solid #fff;
+  max-width: 80%;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  transform: translate(-50%, -50%) scale(0.9);
+   font-family: "Content", sans-serif;
+}
+
+/* show caption on hover in desktop */
+.showcase-card:hover .showcase-caption {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 992px) {
+  .showcase-title {
+    font-size: 38px;
+  }
+
+  .showcase-line {
+    height: 50px;
+    width: 4px;
+  }
+
+  /* Reduce animation distance on tablet */
+  .showcase-card {
+    transform: translateY(30px);
+  }
+}
+
+/* MOBILE: images stacked, equal widths */
+@media (max-width: 768px) {
+  .showcase-wrapper {
+    width: 90%;
+  }
+
+  .showcase-header {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .showcase-title-wrap {
+    top: 0;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .showcase-title {
+    font-size: 28px !important;
+    top: 0;
+  }
+
+  .showcase-line {
+    height: 40px;
+    width: 4px;
+  }
+
+  .showcase-subtitle {
+    text-align: left;
+    top: 0;
+  }
+
+  /* Reset for mobile - stack all images */
+  .showcase-row-1,
+  .showcase-row-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .showcase-card-1,
+  .showcase-card-2,
+  .showcase-card-3,
+  .showcase-card-4,
+  .showcase-card-5 {
+    width: 100%;
+  }
+
+  .showcase-caption {
+    opacity: 1;
+    top: 50%;
+    font-size: 12px;
+    max-width: 85%;
+    background: rgba(0, 0, 0, 0.4);
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* Reset animation for mobile */
+  .showcase-card {
+    transform: translateY(30px);
+  }
+
+  /* Remove hover effects on mobile */
+  .showcase-card:hover img {
+    transform: none;
+    filter: none;
+  }
+
+  /* Adjust animation delays for mobile */
+  .showcase-card-1.animated { transition-delay: 0.1s; }
+  .showcase-card-2.animated { transition-delay: 0.2s; }
+  .showcase-card-3.animated { transition-delay: 0.3s; }
+  .showcase-card-4.animated { transition-delay: 0.4s; }
+  .showcase-card-5.animated { transition-delay: 0.5s; }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .showcase-wrapper {
+    width: 95%;
+  }
+
+  .showcase-title {
+    font-size: 26px !important;
+  }
+
+  .showcase-subtitle {
+    font-size: 14px !important;
+  }
+
+  .showcase-caption {
+    font-size: 11px;
+    padding: 10px 18px;
+  }
+}
+
+/* Hide captions completely */
+.showcase-caption {
+  display: none !important;
+}

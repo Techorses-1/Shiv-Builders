@@ -1,0 +1,335 @@
+$team-blue: #071a4b;
+
+@font-face {
+    font-family: "Content";
+    src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Heading";
+    src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+    font-style: normal;
+}
+
+/* ================= SECTION ================= */
+.team-section {
+    width: 100%;
+    background: #ffffff;
+    padding: 80px 0;
+    overflow-x: hidden;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.8s ease;
+}
+
+.team-section.animate-visible {
+    opacity: 1;
+}
+
+.team-container {
+    max-width: 1270px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================= HEADING ================= */
+.section-header {
+    margin-bottom: 50px;
+    max-width: 600px;
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-50px); /* Slide from left */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-header.animate-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-line {
+    width: 5px;
+    height: 55px;
+    background: $team-blue;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.section-header.animate-visible .section-line {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: $team-blue;
+    margin: 0;
+    font-family: "Heading", sans-serif;
+    color: #001a4d;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+}
+
+.section-header.animate-visible .section-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-sub {
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 520px;
+    font-family: "Content", sans-serif;
+    color: #001a4d;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
+}
+
+.section-header.animate-visible .section-sub {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= ROWS CONTAINER ================= */
+.team-rows-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ================= ROWS ================= */
+.team-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Second row - offset to center 3 cards between columns */
+.team-row-second {
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%; /* 3/4 of the width */
+    margin: 20px auto; /* Center the row */
+}
+
+/* ================= CARD ================= */
+.team-card {
+    width: 100%;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(40px); /* Slide up from bottom */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.team-card.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for cards - First row (4 cards) */
+.team-row-first .team-card:nth-child(1) { transition-delay: 0.1s; }
+.team-row-first .team-card:nth-child(2) { transition-delay: 0.2s; }
+.team-row-first .team-card:nth-child(3) { transition-delay: 0.3s; }
+.team-row-first .team-card:nth-child(4) { transition-delay: 0.4s; }
+
+/* Staggered animation for cards - Second row (3 cards) */
+.team-row-second .team-card:nth-child(1) { transition-delay: 0.5s; }
+.team-row-second .team-card:nth-child(2) { transition-delay: 0.6s; }
+.team-row-second .team-card:nth-child(3) { transition-delay: 0.7s; }
+
+/* ================= IMAGE ================= */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f2f2f2;
+    cursor: pointer;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* ================= BADGE ================= */
+.name-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 18px 22px; /* Increased padding for 2 lines */
+    color: #071a4b;
+    border-radius: 14px;
+    font-size: 15.5px;
+    font-weight: 600;
+    background: #fff;
+    width: 70%; /* Slightly wider for better text fit */
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.5s ease;
+    font-family: "Content", sans-serif;
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-50%) translateY(20px); /* Start slightly below */
+    transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s; /* Delayed animation */
+}
+
+/* Name styling */
+.badge-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px; /* Space between name and role */
+    line-height: 1.2;
+}
+
+/* Role styling - slightly smaller and lighter */
+.badge-role {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+}
+
+.team-card.animate-visible .name-badge {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ================= HOVER ================= */
+.image-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.image-wrapper:hover .name-badge {
+    transform: translateX(-50%) scale(0.92);
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+    .team-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .team-row-second {
+        width: 100%; /* Full width on tablet */
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+    
+    /* Center the 3rd card on tablet */
+    .team-row-second .team-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 50%;
+    }
+    
+    .image-wrapper {
+        height: 300px;
+    }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    .team-section {
+        opacity: 1; /* Always visible on mobile */
+    }
+    
+    .section-header {
+        transform: translateY(30px); /* Change to vertical animation */
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-line {
+        height: 40px;
+        width: 4px;
+    }
+
+    .section-sub {
+        font-size: 15px;
+    }
+
+    .team-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .team-row-second {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    
+    /* Remove the centered 3rd card styling for mobile */
+    .team-row-second .team-card:last-child {
+        grid-column: auto;
+        max-width: 100%;
+    }
+
+    .image-wrapper {
+        height: 280px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* Adjust badge for mobile */
+    .name-badge {
+        width: 75%; /* Slightly wider on mobile */
+        padding: 16px 20px; /* Adjust padding */
+    }
+    
+    .badge-name {
+        font-size: 15px;
+    }
+    
+    .badge-role {
+        font-size: 12px;
+    }
+    
+    /* Reset transition delays for single column */
+    .team-card {
+        transform: translateY(20px); /* Less distance on mobile */
+    }
+    
+    /* Mobile animation delays */
+    .team-row-first .team-card:nth-child(1) { transition-delay: 0.1s; }
+    .team-row-first .team-card:nth-child(2) { transition-delay: 0.2s; }
+    .team-row-first .team-card:nth-child(3) { transition-delay: 0.3s; }
+    .team-row-first .team-card:nth-child(4) { transition-delay: 0.4s; }
+    .team-row-second .team-card:nth-child(1) { transition-delay: 0.5s; }
+    .team-row-second .team-card:nth-child(2) { transition-delay: 0.6s; }
+    .team-row-second .team-card:nth-child(3) { transition-delay: 0.7s; }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .team-card {
+        transform: translateY(15px);
+    }
+    
+    .name-badge {
+        width: 80%; /* Even wider on small screens */
+        padding: 14px 18px;
+    }
+    
+    .badge-name {
+        font-size: 14px;
+    }
+    
+    .badge-role {
+        font-size: 11px;
+    }
+}

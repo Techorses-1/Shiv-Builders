@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
+@font-face {
+    font-family: "Content";
+    src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Heading";
+    src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+    font-style: normal;
+}
+
+/* FIRST SECTION */
+.founder-section {
+    width: 100%;
+    background: #0b1a52; 
+    // background: #f9f7f2; 
+    padding: 80px 0;
+    overflow: hidden;
+    color: #fff;
+}
+
+.founder-wrapper {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+/* FIRST SECTION ANIMATION */
+.founder-image-box {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 14/9;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 6px;
+        display: block;
+        transform: scale(1.05);
+        transition: transform 1.2s ease;
+    }
+
+    .shape {
+        position: absolute;
+        background: white;
+        width: 70px;
+        height: 70px;
+        clip-path: polygon(50% 0%, 60% 25%, 100% 50%, 60% 75%, 50% 100%, 40% 75%, 0% 50%, 40% 25%);
+    }
+
+    .shape-bottom-left {
+        bottom: -35px;
+        left: -20px;
+    }
+
+    .shape-top-center {
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.founder-content {
+    flex: 1;
+    color: #fff;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+    /* Delayed */
+
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        font-family: "Heading", sans-serif;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+    }
+
+    h3 {
+        font-size: 21px;
+        margin-bottom: 25px;
+        font-family: "Content", sans-serif;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
+        margin: 5px 0 0 0;
+    }
+
+    p {
+        line-height: 1.7;
+        font-size: 17.5px;
+        opacity: 0.9;
+        text-align: justify;
+        font-family: "Content", sans-serif;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease 0.9s, transform 0.6s ease 0.9s;
+    }
+
+    .number-font {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        /* If you want the numbers to look different */
+        /* font-weight: 600; /* Make numbers bold */
+        /* color: #001a4d; /* Keep same color */
+    }
+}
+
+.founders-list-content p .number-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* When first section is visible */
+.first-section-wrapper.animate-visible .founder-image-box {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.first-section-wrapper.animate-visible .founder-image-box img {
+    transform: scale(1);
+}
+
+.first-section-wrapper.animate-visible .founder-content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.first-section-wrapper.animate-visible .founder-content h1,
+.first-section-wrapper.animate-visible .founder-content h3,
+.first-section-wrapper.animate-visible .founder-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE RESPONSIVE for first section */
+@media (max-width: 900px) {
+    .founder-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .founder-content h1 {
+        font-size: 32px;
+    }
+
+    .founder-image-box {
+        transform: translateY(50px);
+        /* Change direction for mobile */
+    }
+
+    .founder-content {
+        transform: translateY(30px);
+        /* Change direction for mobile */
+    }
+
+    .first-section-wrapper.animate-visible .founder-image-box,
+    .first-section-wrapper.animate-visible .founder-content {
+        transform: translateY(0);
+    }
+
+    .founder-image-box .shape-bottom-left,
+    .founder-image-box .shape-top-center {
+        display: none;
+    }
+}
+
+/* SECOND SECTION - DESKTOP */
+.founders-list-section {
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.founders-list-card {
+    max-width: 1200px;
+    width: 65%;
+    margin: auto;
+    background: linear-gradient(90deg, #142a7cc6, #e8eef7ac);
+    border-radius: 14px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: visible;
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.3s ease;
+    /* Smooth fade in */
+}
+
+.founders-list-card.animate-visible {
+    opacity: 1;
+    /* Make visible when in view */
+}
+
+.founders-list-card.reverse {
+    flex-direction: row-reverse;
+    background: linear-gradient(to left, #142a7cc6, #e8eef7ac);
+}
+
+/* IMAGE OUTSIDE BOX */
+.founders-list-image {
+    flex: 1;
+    position: relative;
+    opacity: 0;
+    /* Initially hidden for animation */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Smooth transition */
+
+    img {
+        width: 400px;
+        position: absolute;
+        top: -145px;
+        left: -125px;
+        object-fit: contain;
+        filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.25));
+        pointer-events: none;
+    }
+}
+
+/* Animation classes - modified */
+.animate-left {
+    transform: translateX(-60px);
+    opacity: 0;
+}
+
+.animate-right {
+    transform: translateX(60px);
+    opacity: 0;
+}
+
+/* When parent card is visible, animate the image */
+.founders-list-card.animate-visible .animate-left {
+    animation: slideLeft 0.9s ease-out forwards;
+    opacity: 1;
+}
+
+.founders-list-card.animate-visible .animate-right {
+    animation: slideRight 0.9s ease-out forwards;
+    opacity: 1;
+}
+
+.founders-list-card.reverse .founders-list-image img {
+    left: auto;
+    right: -125px;
+}
+
+/* CONTENT - DESKTOP TEXT ALIGNMENT */
+.founders-list-content {
+    flex: 2;
+    color: #0b0b0b;
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateY(20px);
+    /* Start slightly below */
+    transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+    /* Delayed animation */
+
+    /* DEFAULT FOR LEFT IMAGE (text aligned left) */
+    h2,
+    h4 {
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 32px;
+        margin-bottom: 0px;
+        font-family: "Heading", sans-serif;
+    }
+
+    h4 {
+        font-size: 18px;
+        opacity: 0.7;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-family: "Content", sans-serif;
+    }
+
+    p {
+        line-height: 1.6;
+        font-size: 16px;
+        max-width: 600px;
+        text-align: justify;
+        font-family: "Content", sans-serif;
+    }
+}
+
+/* When parent card is visible, animate the content */
+.founders-list-card.animate-visible .founders-list-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOR RIGHT IMAGE - ALIGN TEXT TO RIGHT */
+.founders-list-card.reverse .founders-list-content h2,
+.founders-list-card.reverse .founders-list-content h4 {
+    text-align: right;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.founders-list-card.reverse .founders-list-content p {
+    margin-left: auto;
+    text-align: justify;
+}
+
+/* ANIMATIONS */
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* MOBILE RESPONSIVE - SECOND SECTION */
+@media (max-width: 768px) {
+    .founders-list-section {
+        padding: 60px 0;
+        gap: 50px;
+    }
+
+    .founders-list-card,
+    .founders-list-card.reverse {
+        width: 90%;
+        flex-direction: column-reverse;
+        padding: 30px 25px 0;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        min-height: 380px;
+        overflow: hidden;
+        box-sizing: border-box;
+        gap: 20px;
+        background: linear-gradient(180deg, #142a7cc6, #e8eef7ac);
+        opacity: 0;
+    }
+
+    .founders-list-card.animate-visible {
+        opacity: 1;
+    }
+
+    .founders-list-image {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        img {
+            position: relative;
+            width: 320px;
+            max-width: 100%;
+            height: auto;
+            top: 0;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+
+    /* Reset transforms for mobile */
+    .animate-left,
+    .animate-right {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    .founders-list-card.animate-visible .animate-left,
+    .founders-list-card.animate-visible .animate-right {
+        animation: slideUpMobile 0.8s ease-out forwards;
+    }
+
+    @keyframes slideUpMobile {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* OVERRIDE FOR REVERSE CARDS ON MOBILE */
+    .founders-list-card.reverse .founders-list-image img {
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 auto;
+    }
+
+    /* MOBILE CONTENT - ALL CENTERED */
+    .founders-list-content {
+        width: 100%;
+        text-align: center;
+
+        h2,
+        h4 {
+            text-align: center !important;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 0 auto;
+            text-align: justify;
+            max-width: 100%;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+
+    .founders-list-card,
+    .founders-list-card.reverse {
+        width: 90%;
+        padding: 25px 20px 0;
+    }
+
+    .founders-list-image img {
+        width: 280px;
+    }
+
+    .founders-list-content h2 {
+        font-size: 24px;
+    }
+}
+
+/* For extremely small screens */
+@media (max-width: 360px) {
+
+    .founders-list-card,
+    .founders-list-card.reverse {
+        width: 90%;
+        padding: 20px 15px 0;
+    }
+
+    .founders-list-image img {
+        width: 250px;
+    }
+}

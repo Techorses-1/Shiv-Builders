@@ -1,0 +1,177 @@
+$cta-blue: #071a4b;
+$cta-text: #ffffff;
+
+
+
+
+@font-face {
+    font-family: "Heading";
+    src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+    font-style: normal;
+}
+
+
+.about-cta-section {
+  width: 100%;
+  background: $cta-blue;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ---------------- DESKTOP ---------------- */
+
+.about-cta-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-right: 60px; // right spacing for text
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* IMAGE – Touch left edge */
+.about-cta-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: -90px; // push image to touch left side
+
+  img {
+    width: 100%;
+    max-width: 560px;
+    object-fit: contain;
+    opacity: 0.75;
+  }
+}
+
+/* TEXT ON RIGHT SIDE */
+.about-cta-text {
+  flex: 1;
+  color: $cta-text;
+  display: flex;
+  align-items: flex-start;
+  // gap: 0px;
+  justify-content: flex-end; // align text to right
+}
+
+.about-cta-quote-desktop {
+  font-size: 80px;
+  line-height: 0.6;
+  margin-top: 20px;
+  margin-right: -50px;
+}
+
+.about-cta-message {
+  font-size: 40px;
+  line-height: 1.3;
+  font-weight: 400;
+  max-width: 540px;
+  text-align: right; // right aligned text
+  font-family: "Heading", sans-serif;
+}
+
+/* ---------------- TABLET ---------------- */
+
+@media (max-width: 992px) {
+  .about-cta-message {
+    font-size: 28px;
+  }
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 768px) {
+
+  /* Image becomes background */
+  .about-cta-section {
+    background: $cta-blue;
+    position: relative;
+  }
+
+  .about-cta-inner {
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+  }
+
+  /* IMAGE AS BG */
+  .about-cta-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    opacity: 0.30; // image darkened to show text clearly
+  }
+
+  /* TEXT ON TOP OF IMAGE */
+  .about-cta-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    padding: 0 10px;
+    width: 95%;
+  }
+
+  .about-cta-message {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 280px;
+  }
+
+  .about-cta-quote-mobile {
+    font-size: 48px;
+    line-height: 0.6;
+    position: absolute;
+    left: 15px;
+    top: 0%;
+    transform: translateY(-50%);
+  }
+
+}
+
+
+
+/* ---------------- BIG SCREENS (Above 1600px) ---------------- */
+@media (min-width: 1601px) {
+  .about-cta-section {
+    position: relative;
+  }
+
+  .about-cta-inner {
+    max-width: 1400px;
+     
+  }
+
+  /* Make image position absolute to break out of container - LEFT SIDE */
+  .about-cta-image {
+    position: absolute;
+    left: 0; /* Changed from right: 0 to left: 0 */
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0; /* Changed from margin-right: 0 */
+    width: 50%; /* Adjust as needed */
+    max-width: none;
+    z-index: 0;
+
+    img {
+      max-width: none;
+      width: auto;
+      height: 300px;
+      max-height: 600px; /* Adjust based on your design */
+      object-fit: contain;
+    }
+  }
+
+  /* Ensure text stays above image */
+  .about-cta-text {
+    position: relative;
+    z-index: 2;
+  }
+}
+

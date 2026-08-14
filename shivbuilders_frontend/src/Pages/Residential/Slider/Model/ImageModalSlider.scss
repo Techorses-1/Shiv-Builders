@@ -1,0 +1,95 @@
+.image-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+
+  max-width: 90vw;
+  max-height: 90vh;
+
+  padding: 10px;
+  border-radius: 14px;
+  background: #fffdfd;
+}
+
+/* IMAGE */
+.image-modal img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 80vh;
+
+  object-fit: contain;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ARROWS – BOTTOM LEFT */
+.modal-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+
+  button {
+    background: #ffffff;
+    color: #000;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      background: #f1f1f1;
+    }
+  }
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background: #ffffff;
+  color: #000;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: rotate(90deg);
+    background: #f1f1f1;
+  }
+}
+
+/* TEXT BELOW MODAL */
+.modal-text {
+  position: absolute;
+  left: 12px;
+  bottom: -34px;
+  color: #ffffff;
+  font-size: 17px;
+  letter-spacing: 0.4px;
+}

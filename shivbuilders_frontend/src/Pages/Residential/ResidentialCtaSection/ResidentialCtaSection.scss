@@ -1,0 +1,106 @@
+$res-cta-bg: #071a4b;
+$res-cta-text: #ffffff;
+
+
+@font-face {
+  font-family: "Heading";
+  src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+  font-style: normal;
+}
+
+/* SAFETY – prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+}
+
+.residential-cta-section {
+  width: 100%;
+  padding: 50px 20px;
+  background: $res-cta-bg;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  font-family: "Heading", sans-serif;
+
+
+  @media (max-width: 768px) {
+
+    padding: 50px 0px;
+  }
+}
+
+/* ---------------- DOT PATTERN (BOTTOM HALF) ---------------- */
+
+.residential-cta-dots {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.25) 22%, transparent 23%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.18) 14%, transparent 15%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.10) 8%, transparent 9%);
+
+  background-size:
+    24px 22px,
+    20px 20px,
+    12px 12px;
+
+  background-position:
+    center bottom,
+    center -30px,
+    center -70px;
+
+  opacity: 0.25;
+}
+
+/* ---------------- CONTENT ---------------- */
+
+.residential-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.residential-cta-title {
+  color: $res-cta-text;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  font-size: 48px;
+  letter-spacing: 0.2px;
+  /* ✅ Desktop size */
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 768px) {
+  .residential-cta-title {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .residential-cta-dots {
+    height: 55%;
+    background-size:
+      16px 16px,
+      12px 12px,
+      6px 6px;
+
+    background-position:
+      center bottom,
+      center -20px,
+      center -40px;
+  }
+}
+
+/* ---------------- ULTRA LARGE SCREENS ---------------- */
+
+@media (min-width: 1600px) {
+  .residential-cta-section {
+    width: 98%;
+  }
+}

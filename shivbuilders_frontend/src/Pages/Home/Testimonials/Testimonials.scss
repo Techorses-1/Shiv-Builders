@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
+@font-face {
+    font-family: "Content";
+    src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Heading";
+    src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+    font-style: normal;
+}
+
+$white: #ffffff;
+$blue: #071a4b;
+
+/* ================= MASTER SECTION ================= */
+
+.testimonials-section {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 90px 0;
+    color: $white;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 18, 60, 0.65);
+    z-index: 1;
+}
+
+.testimonials-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -3rem;
+}
+
+/* ================= HEADINGS ================= */
+
+.main-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-family: "Heading", sans-serif;
+}
+
+.sub-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    font-family: "Content", sans-serif;
+
+}
+
+/* ================= CONTENT ROW ================= */
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+/* ================= LEFT BLOCK ================= */
+
+.left-block {
+    width: 45%;
+    text-align: left;
+}
+
+.quote-icon {
+    font-size: 90px;
+    font-weight: 700;
+    line-height: 0.5;
+    display: block;
+}
+
+.left-text {
+    font-size: 52px;
+    font-weight: 600;
+    margin: 20px 0;
+    margin-top: -0.5rem;
+    font-family: "Sorts Mill Goudy", serif;
+
+}
+
+.arrow-icon {
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+/* ================= RIGHT BLOCK ================= */
+
+.right-block {
+    width: 58%;
+    text-align: center;
+}
+
+/* SPEECH BUBBLE - OVAL SHAPE */
+.speech-bubble {
+    background: $white;
+    color: $blue;
+    padding: 50px 70px;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 40px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+}
+
+.speech-bubble::after {
+    display: none;
+    content: "";
+    position: absolute;
+    bottom: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 22px 22px 0 22px;
+    border-style: solid;
+    border-color: $white transparent transparent transparent;
+}
+
+.review-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-family: "Heading", sans-serif;
+}
+
+.review-text {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: "Content", sans-serif;
+
+}
+
+/* AVATARS - LEFT/RIGHT ABOVE, CENTER BELOW */
+.avatars-row {
+    display: flex;
+    align-items: flex-end;
+    /* Align to bottom */
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    height: 120px;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid $white;
+    overflow: hidden;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: $white;
+    /* WHITE BACKGROUND ADDED */
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* INACTIVE AVATAR - POSITION ABOVE */
+    &:not(.active) {
+        filter: brightness(0.7);
+        margin-bottom: 15px;
+        /* LIFT UP LEFT & RIGHT AVATARS */
+    }
+
+    /* ACTIVE AVATAR - POSITION BELOW WITH DIFFERENT BORDER */
+    &.active {
+        width: 65px;
+        height: 65px;
+        opacity: 1;
+        box-shadow: 0 0 0 4px $white, 0 15px 30px rgba(0, 0, 0, 0.4);
+        filter: brightness(1.2);
+        border: 4px solid $blue;
+        /* CHANGED TO BLUE */
+        margin-bottom: 0;
+    }
+}
+
+/* Remove all animations and positioning */
+.nav-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 20px 0 40px 0;
+    }
+
+    .testimonials-wrapper {
+        width: 90%;
+        margin-top: 0;
+    }
+
+    .main-title {
+        font-size: 32px;
+    }
+
+    .sub-title {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+
+    .content-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        margin-top: 30px;
+    }
+
+    .left-block {
+        width: 100%;
+        text-align: center;
+
+        .quote-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .left-text {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 10px 0;
+            line-height: 1.2;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+        }
+
+        .arrow-icon {
+            font-size: 35px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            transform: rotate(90deg);
+        }
+    }
+
+    .right-block {
+        width: 100%;
+    }
+
+    /* SPEECH BUBBLE - CENTERED AND SMALLER */
+    .speech-bubble {
+        padding: 25px 35px;
+        border-radius: 50%;
+        min-width: 280px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .review-name {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .review-text {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    /* AVATARS - SMALLER FOR MOBILE */
+    .avatars-row {
+        height: 80px;
+        gap: 20px;
+    }
+
+    .avatar {
+        width: 45px;
+        height: 45px;
+        border: 2px solid $white;
+        background: $white;
+
+        &:not(.active) {
+            margin-bottom: 10px;
+            /* Smaller lift for mobile */
+        }
+
+        &.active {
+            width: 55px;
+            height: 55px;
+            border: 3px solid $blue;
+            /* Green border for active */
+        }
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .left-block {
+        .left-text {
+            font-size: 22px;
+            height: 52px;
+        }
+
+        .arrow-icon {
+            font-size: 32px;
+            margin-top: 20px;
+        }
+    }
+
+    .speech-bubble {
+        padding: 20px 30px;
+        min-width: 250px;
+    }
+
+    .avatars-row {
+        gap: 15px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        background: $white;
+
+        &:not(.active) {
+            margin-bottom: 8px;
+            /* Even smaller lift for very small screens */
+        }
+
+        &.active {
+            width: 50px;
+            height: 50px;
+            border: 3px solid $blue;
+            /* Green border for active */
+        }
+    }
+}

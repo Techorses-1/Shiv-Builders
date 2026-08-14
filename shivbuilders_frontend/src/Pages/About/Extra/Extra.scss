@@ -1,0 +1,292 @@
+// $team-blue: #071a4b;
+
+// .team-section {
+//   width: 100%;
+//   max-width: 1200px;
+//   margin: 0 auto;
+//   padding: 80px 20px;
+//   background: #f9f7f2;
+//   position: relative;
+//   overflow: hidden;
+//   box-sizing: border-box;
+// }
+
+// /* -----------------------------------
+//    HEADER RIGHT SIDE
+// ----------------------------------- */
+// .team-header {
+//   text-align: right;
+//   width: 100%;
+//   margin-bottom: 40px;
+//   box-sizing: border-box;
+// }
+
+// .team-title {
+//   font-size: 48px;
+//   font-weight: 700;
+//   color: $team-blue;
+//   margin: 0;
+// }
+
+// .team-sub {
+//   margin-top: 10px;
+//   font-size: 16px;
+//   line-height: 1.5;
+//   color: #222;
+//   max-width: 600px;
+//   margin-left: auto;
+// }
+
+// /* -----------------------------------
+//    TEAM CONTAINER (3 persons)
+// ----------------------------------- */
+// .team-container {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-end;
+//   position: relative;
+//   height: 500px;
+//   width: 100%;
+//   box-sizing: border-box;
+//   padding: 0 50px; // Increased padding for better spacing
+// }
+
+// /* BASE CARD STYLE */
+// .team-card {
+//   position: absolute;
+//   text-align: center;
+//   transition: all 0.6s ease;
+//   opacity: 0.8;
+//   box-sizing: border-box;
+//   width: 25%; // Fixed width for all cards
+
+//   .team-img {
+//     height: 350px;
+//     width: auto;
+//     max-width: 100%;
+//     object-fit: contain;
+//   }
+
+//   .team-name {
+//     margin-top: 10px;
+//     font-size: 20px;
+//     color: $team-blue;
+//     font-weight: 700;
+//   }
+
+//   .team-role {
+//     font-size: 14px;
+//     margin-top: -4px;
+//   }
+// }
+
+// /* -----------------------------------
+//    CARD POSITIONS - CLOSER TOGETHER
+// ----------------------------------- */
+// .position-left {
+//   left: 10%; // Changed to bring closer
+//   transform: translateX(0) scale(0.9);
+//   z-index: 1;
+  
+//   .team-img {
+//     height: 280px; // Smaller
+//   }
+// }
+
+// .position-middle {
+//   left: 40%; // Moved closer to center
+//   transform: translateX(-50%) scale(0.95);
+//   opacity: 0.9;
+//   z-index: 2;
+  
+//   .team-img {
+//     height: 320px; // Medium size
+//   }
+// }
+
+// .position-right {
+//   right: 10%; // Changed to bring closer
+//   transform: translateX(0) scale(1);
+//   opacity: 1;
+//   z-index: 3;
+// }
+
+// /* ACTIVE CARD DETAILS BOX - FIXED POSITION */
+// .team-details {
+//   background: $team-blue;
+//   color: white;
+//   padding: 20px;
+//   border-radius: 20px 0 20px 0;
+//   width: 300px; // Slightly wider for better text display
+//   text-align: left;
+//   margin: 20px 0 15px -30px; // Adjusted to stay within bounds
+//   box-sizing: border-box;
+//   position: absolute;
+//   left: 100%;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   z-index: 4;
+// }
+
+// .team-socials {
+//   margin-top: 10px;
+//   display: flex;
+//   gap: 12px;
+//   font-size: 18px;
+// }
+
+// /* -----------------------------------
+//    ARROW BUTTON
+// ----------------------------------- */
+// .team-arrow {
+//   margin-top: 50px;
+//   text-align: right;
+//   font-size: 40px;
+//   cursor: pointer;
+//   color: $team-blue;
+//   transition: 0.3s;
+//   padding-right: 50px;
+
+//   span:hover {
+//     transform: translateX(5px);
+//   }
+// }
+
+// /* -----------------------------------
+//    TABLET VIEW
+// ----------------------------------- */
+// @media (max-width: 1024px) {
+//   .team-section {
+//     padding: 60px 15px;
+//   }
+  
+//   .team-container {
+//     height: 450px;
+//     padding: 0 30px;
+//   }
+  
+//   .position-left {
+//     left: 8%;
+//   }
+  
+//   .position-middle {
+//     left: 38%;
+//   }
+  
+//   .position-right {
+//     right: 8%;
+//   }
+  
+//   .team-details {
+//     width: 250px;
+//     margin-left: -20px;
+//   }
+  
+//   .team-card .team-img {
+//     height: 300px;
+//   }
+  
+//   .position-left .team-img {
+//     height: 240px;
+//   }
+  
+//   .position-middle .team-img {
+//     height: 280px;
+//   }
+// }
+
+// /* -----------------------------------
+//    MOBILE VIEW — show only active member
+// ----------------------------------- */
+// @media (max-width: 768px) {
+//   .team-section {
+//     padding: 40px 15px;
+//   }
+  
+//   .team-header {
+//     text-align: center;
+//     margin-bottom: 30px;
+//   }
+  
+//   .team-sub {
+//     margin-left: auto;
+//     margin-right: auto;
+//     text-align: center;
+//   }
+  
+//   .team-title {
+//     font-size: 36px;
+//   }
+  
+//   .team-container {
+//     height: auto;
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//     align-items: center;
+//     padding: 0;
+//     position: relative;
+//   }
+  
+//   .team-card {
+//     position: relative !important;
+//     width: 100% !important;
+//     max-width: 300px !important;
+//     margin: 0 auto 30px;
+//     opacity: 0 !important;
+//     transform: scale(0.9) !important;
+//     left: auto !important;
+//     right: auto !important;
+//   }
+  
+//   .position-right {
+//     opacity: 1 !important;
+//     transform: scale(1) !important;
+//   }
+  
+//   .team-details {
+//     position: relative !important;
+//     left: auto !important;
+//     top: auto !important;
+//     transform: none !important;
+//     margin: 20px auto !important;
+//     width: 90% !important;
+//     text-align: center;
+//   }
+  
+//   .team-arrow {
+//     text-align: center;
+//     margin-top: 20px;
+//     padding-right: 0;
+//   }
+  
+//   .position-left,
+//   .position-middle {
+//     display: none; // Hide non-active cards on mobile
+//   }
+// }
+
+// /* -----------------------------------
+//    SMALL MOBILE
+// ----------------------------------- */
+// @media (max-width: 480px) {
+//   .team-section {
+//     padding: 30px 10px;
+//   }
+  
+//   .team-title {
+//     font-size: 28px;
+//   }
+  
+//   .team-sub {
+//     font-size: 14px;
+//   }
+  
+//   .team-card .team-img {
+//     height: 220px;
+//   }
+  
+//   .team-details {
+//     padding: 15px;
+//   }
+// }

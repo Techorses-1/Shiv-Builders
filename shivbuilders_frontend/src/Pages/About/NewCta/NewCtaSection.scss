@@ -1,0 +1,154 @@
+$new-cta-bg: #071a4b;
+$new-cta-text: #fff;
+
+@font-face {
+    font-family: "Content";
+    src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "Heading";
+    src: url("../../../assets/fonts/section-head.ttf") format("opentype");
+    font-style: normal;
+}
+/* GLOBAL FIX – prevents scroll on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+.new-cta-section {
+  width: 100%;
+  padding: 30px 0px; 
+  background: $new-cta-bg;
+  position: relative;
+  overflow: hidden;  
+  text-align: center;
+}
+
+/* ---------------- DOT PATTERN (BOTTOM HALF ONLY) ---------------- */
+
+.new-cta-dots {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  pointer-events: none;
+  overflow: hidden;
+
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.25) 22%, transparent 23%),
+    radial-gradient(circle, rgba(255,255,255,0.18) 14%, transparent 15%),
+    radial-gradient(circle, rgba(255,255,255,0.10) 8%, transparent 9%);
+
+  background-size:
+    28px 28px,
+    20px 20px,
+    12px 12px;
+
+  background-position:
+    center bottom,
+    center -30px,
+    center -70px;
+
+  opacity: 0.25;
+}
+
+/* ---------------- CONTENT ---------------- */
+
+.new-cta-content {
+  position: relative;
+  z-index: 3;
+}
+
+.new-cta-title {
+  font-size: 65px;
+  font-weight: 700;
+  color: $new-cta-text;
+  margin: 20px 0;
+  line-height: 1.1;
+  font-family: "Heading", sans-serif;
+}
+
+.new-cta-btn {
+  background: transparent;
+  color: $new-cta-text;
+  font-size: 22px;
+  padding: 15px 55px;
+  border: 3px solid $new-cta-text;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  font-family: "Content", sans-serif;
+  letter-spacing: 2px;
+}
+
+.new-cta-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 992px) {
+  .new-cta-title {
+    font-size: 52px;
+  }
+  .new-cta-btn {
+    font-size: 20px;
+    padding: 12px 45px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* FIX MOBILE OVERFLOW */
+  .new-cta-section {
+    width: 93%;
+    padding: 40px 12px;
+    overflow-x: hidden;
+  }
+
+  /* SCALE DOTS FOR MOBILE */
+  .new-cta-dots {
+    height: 55%;
+    background-size:
+      16px 16px,  /* smaller big dots */
+      12px 12px,  /* smaller medium dots */
+      6px 6px;    /* smaller small dots */
+
+    background-position:
+      center bottom,
+      center -20px,
+      center -40px;
+  }
+
+  .new-cta-title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .new-cta-btn {
+    font-size: 16px;
+    padding: 10px 28px;
+  }
+}
+
+
+
+
+@media (min-width: 1600px) {
+  .new-cta-section {
+    width: 97.8% ;
+    overflow-x: hidden !important; /* 🔥 extra safety for ultra screens */
+  }
+
+  .new-cta-dots {
+    background-position: 
+      center bottom,
+      center -20px,
+      center -50px;  /* 🔥 reduces horizontal push */
+  }
+}

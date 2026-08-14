@@ -1,0 +1,323 @@
+
+@font-face {
+  font-family: "NavbarFont";
+  src: url("../../assets/fonts/navbar.otf") format("opentype");
+  // font-weight: normal; 
+  font-style: normal;
+}
+
+/* MAIN NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 10px 50px;
+  transition: all 0.3s ease;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  font-family: "NavbarFont", sans-serif;
+  font-weight: 600 !important;
+}
+
+.navbar.scrolled {
+  background: #0c1a52;
+  padding: 10px 50px;
+}
+
+/* CONTAINER */
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  /* Add this for proper positioning */
+}
+
+/* LOGO */
+.nav-logo {
+  width: 100px;
+}
+
+/* RIGHT SIDE (LINKS + BUTTON) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+
+/* NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 55px;
+
+  li {
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+}
+
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* ON SCROLL */
+.navbar.scrolled .nav-links li a {
+  color: #f2d675;
+}
+
+/* HOVER */
+.nav-links li a:hover {
+  color: #f2d675;
+}
+
+/* SCROLLED NAV LINKS COLOR */
+.navbar.scrolled .nav-links li {
+  color: #f2d675;
+}
+
+/* INQUIRY BUTTON */
+.inquiry-btn {
+  padding: 12px 32px;
+  background: transparent;
+  border: 2px solid #f2d675;
+  color: #f2d675;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    background: #f2d675;
+    color: #0c1a52;
+  }
+}
+
+/* MOBILE MENU ICON - HIDDEN BY DEFAULT ON DESKTOP */
+.mobile-menu-icon {
+  display: none;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  z-index: 1000;
+  /* Remove right positioning - let flexbox handle it */
+}
+
+/* MOBILE MENU (SLIDE PANEL) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -120%;
+  width: 80%;
+  height: 100vh;
+  background: #0c1a52;
+  padding: 120px 40px;
+  transition: 0.4s ease;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center everything */
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* Center text */
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    /* Full width */
+
+    li {
+      color: #f2d675;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      padding: 8px 0;
+      width: 100%;
+      /* Full width */
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+
+.mobile-menu {
+  align-items: center; /* ENSURE PERFECT CENTER AXIS */
+}
+
+.mobile-menu ul li a {
+  color: #f2d675;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.mobile-menu ul li a:hover {
+  color: white;
+}
+
+/* MOBILE MENU OPEN */
+.mobile-menu.open {
+  right: 0 !important;
+  /* Change to 0 for full visibility */
+}
+
+.mobile-inquiry-btn {
+  margin-top: 40px;
+  margin-left: 15px;
+
+  width: 35%;                 /* SAME AS <li> */
+  max-width: 100%;             /* IMPORTANT */
+
+
+  border: 2px solid #f2d675;
+  background: transparent;
+  color: #f2d675;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  text-align: center;
+
+  display: block;  
+  padding: 10px 15px;            /* KEY FIX */
+}
+
+.mobile-menu a {
+  text-decoration: none !important;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+
+/* FOR TABLET AND MOBILE - Single breakpoint approach */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 15px 30px;
+    width: 93%;
+  }
+
+  .navbar.scrolled {
+    padding: 10px 30px;
+  }
+
+  .nav-logo {
+    width: 95px;
+  }
+
+  /* Hide desktop navigation */
+  .nav-right {
+    display: none !important;
+  }
+
+  /* Show mobile menu icon */
+  .mobile-menu-icon {
+    display: block !important;
+    position: static !important;
+    /* Remove any absolute positioning */
+    margin-left: auto;
+    /* Push to the right */
+  }
+}
+
+/* For smaller mobile devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .navbar.scrolled {
+    padding: 8px 20px;
+  }
+
+  .nav-logo {
+    width: 80px;
+  }
+
+  .mobile-menu {
+    width: 100%;
+    /* Full width on mobile */
+    padding: 100px 30px;
+  }
+
+  .mobile-menu-icon {
+    font-size: 24px;
+    /* Slightly smaller on mobile */
+  }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar.scrolled {
+    padding: 6px 15px;
+  }
+
+  .nav-logo {
+    width: 70px;
+  }
+
+  .mobile-menu {
+    padding: 90px 20px;
+  }
+}
+
+
+
+/* ACTIVE NAV LINK UNDERLINE */
+.nav-links li a.active-link {
+  position: relative;
+  color: #f2d675; /* same as hover */
+}
+
+/* UNDERLINE EFFECT */
+.nav-links li a.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #f2d675;
+  border-radius: 2px;
+}
+
+
+
+.mobile-menu ul li a.active-link {
+  position: relative;
+}
+
+.mobile-menu ul li a.active-link::after {
+  content: "";
+  display: block;
+  margin: 6px auto 0;
+  width: 40%;
+  height: 2px;
+  background: #f2d675;
+}

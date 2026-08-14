@@ -1,0 +1,226 @@
+$res-bg: #f4f1eb;
+
+
+
+@font-face {
+  font-family: "Content";
+  src: url("../../../assets/fonts/newcontent.ttf") format("opentype");
+  font-style: normal;
+}
+
+
+.res-showcase {
+  background: $res-bg;
+  padding: 50px 0px 40px 0;
+  overflow: hidden;
+  width: 100%;
+      font-family: "Content", sans-serif;
+
+  
+}
+
+/* MAIN ROW */
+.res-showcase-row {
+  display: flex;
+  align-items: flex-end;
+  /* 🔥 SAME BASE LINE */
+  gap: 18px;
+}
+
+/* COMMON CARD STYLE */
+.res-card {
+  position: relative;
+  overflow: hidden;
+  //   border-radius: 26px;
+
+  clip-path: polygon(0 0,
+      100% 10%,
+      100% 96%,
+      0 100%);
+}
+
+/* IMAGE FIX */
+.res-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  //   border-radius: 26px;
+  //   transform: skewX(6deg) scale(1.1); 
+
+}
+
+/* DIFFERENT WIDTHS & HEIGHTS */
+.card-1 {
+  width: 375px;
+  height: 420px;
+  transform: translateY(0);
+
+  @media (min-width: 1600px) {
+    width: 450px; /* 420 + 15 */
+    height: 530px; /* 510 + 20 */
+  }
+}
+
+.card-2 {
+  width: 330px;
+  height: 357px;
+  transform: translateY(-19px);
+
+  @media (min-width: 1600px) {
+    width: 430px; /* 400 + 15 */
+    height: 460px; /* 440 + 20 */
+  }
+}
+
+.card-3 {
+  width: 290px;
+  height: 303px;
+  transform: translateY(-33px);
+
+  @media (min-width: 1600px) {
+    width: 365px; /* 340 + 15 */
+    height: 400px; /* 380 + 20 */
+  }
+}
+
+.card-4 {
+  width: 240px;
+  height: 255px;
+  transform: translateY(-46px);
+
+  @media (min-width: 1600px) {
+    width: 320px; /* 300 + 15 */
+    height: 348px; /* 328 + 20 */
+  }
+}
+
+.card-5 {
+  width: 210px;
+  height: 212px;
+  transform: translateY(-60px);
+
+  @media (min-width: 1600px) {
+    width: 287px; /* 270 + 15 */
+    height: 300px; /* 280 + 20 */
+  }
+}
+
+
+
+/* TEXT ON RIGHT */
+.res-showcase-text {
+  margin-top: 40px;
+  max-width: 420px;
+  margin-left: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #111;
+}
+
+
+
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .res-showcase-text {
+    text-align: center;
+    margin: 0 auto 30px;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 0 16px;
+  }
+
+  /* SLIDER CONTAINER */
+  .res-mobile-slider {
+    position: relative;
+    width: 90%;
+    height: 280px;
+    margin: 0 auto;
+    /* 🔥 CENTER IT */
+    overflow: hidden;
+  }
+
+  .mobile-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.4s ease;
+  }
+
+  .mobile-slide.active {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .mobile-slide.prev {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .mobile-slide.next {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  .mobile-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* NAV BUTTONS */
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  .prev-btn {
+    left: 0px;
+  }
+
+  .next-btn {
+    right: 0px;
+  }
+}
+
+
+/* Add this media query for bigger screens */
+@media (min-width: 1600px) {
+  .res-showcase-text {
+    font-size: 30px; /* Increase from 18px */
+    line-height: 1.7; /* Slightly more spacing */
+    max-width: 600px; /* Increase from 420px */
+    margin-top: 20px; /* Increase spacing from cards */
+  }
+}
